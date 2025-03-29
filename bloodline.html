@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7e46d90387.js" crossorigin="anonymous"></script>
+    <title>Bloodline</title>
+</head>
+<style>
+*{
+    font-family: "Poppins", sans-serif;
+}
+.body-3{
+    background-color: #ce999d;
+}
+.container-3{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.music-player-3{
+    background-color:#dfbfa2;
+    width: 400px;
+    padding: 25px 35px;
+    text-align: center;
+    border-radius: 50px;
+    background: radial-gradient(circle,  #dfbfa2,#847368, #617573 70%);
+    background-size: 200% 200%;
+    animation: dynamicLava 8s infinite alternate;
+}
+
+@keyframes dynamicLava {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+nav .circle-3{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background:#efe7e0;
+    color:#284958;
+    transition: .5s;
+    cursor: pointer;
+    box-shadow: 0px 5px 10px rgba(39, 39, 39, 0.5);
+}
+nav .circle-3:hover{
+    transform: scale(1.2);
+    transition: .5s;
+}
+.song-img-3{
+    width: 300px;
+    border-radius: 50px;
+    border: 2px solid #efe7e0;
+    box-shadow: 0px 5px 40px rgba(39, 39, 39, 0.8);
+}
+.Song-name-3{
+    font-weight: 700;
+    color: #efe7e0;
+}
+.music-player-3 p{
+    font-weight: 400;
+    color: #edd8dc;
+}
+#progress-3{
+    -webkit-appearance: none;
+    width: 90%;
+    height: 6px;
+    background-color: #efe7e0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 40px 0;
+}
+#progress-3::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    background: #284958;
+    border-radius: 50%;
+    border: 6px solid #efe7e0;
+    transition: .5s;
+    box-shadow: 0px 5px 10px rgba(39, 39, 39, 0.5);
+}
+#progress-3::-webkit-slider-thumb:hover{
+    transform: scale(1.2);
+    transition: .5s;
+}
+.controls-3{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+.controls-3 div{
+    width: 60px;
+    height:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: #efe7e0;
+    color: #284958;
+    cursor: pointer;
+    transition: .5s;
+    box-shadow: 0px 5px 10px rgba(39, 39, 39, 0.5);
+}
+.controls-3 div:hover{
+    transition: .5s;
+    transform: scale(1.1);
+}
+.controls-3 div:nth-child(2){
+    background-color: #284958;
+    color: #efe7e0;
+    transition: .5s;
+    transform: scale(1.4);
+}
+.controls-3 div:nth-child(2):hover{
+    transition: .5s;
+    transform: scale(1.6);
+}
+</style>
+<body>
+    <div class="container-3">
+        <div class="music-player-3">
+            <nav>
+                <a href="player.html">
+                <div class="circle-3">
+                    <i class="fa-solid fa-music"></i>
+                </div></a>
+                <div class="circle-3">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="img/ari positions.jpg" class="song-img-3">
+            <h1 class="Song-name-3">Bloodline</h1>
+            <p>Ariana grande</p>
+            <audio id="song-3">
+                <source src="audio/bloodline - Ariana Grande.mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress-3">
+            <div class="controls-3">
+                <a href="broklyn bloody pop.html" style="text-decoration: none;"><div><i class="fa-solid fa-backward"></i></div></a>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon-3"></i></div>
+                <a href="Move Like Jagger.html" style="text-decoration: none;"><div><i class="fa-solid fa-forward"></i></div></a>
+            </div>
+        </div>
+    </div>
+<script>
+    let progress = document.getElementById("progress-3");
+    let song = document.getElementById("song-3");
+    let ctrlIcon = document.getElementById("ctrlIcon-3");
+    song.onloadedmetadata = function() {
+        progress.max = song.duration;
+        progress.value = song.currentTime;
+    }
+    function playPause() {
+        if(ctrlIcon.classList.contains("fa-pause")) {
+            song.pause();
+            ctrlIcon.classList.remove("fa-pause");
+            ctrlIcon.classList.add("fa-play");
+        } else {
+            song.play();
+            ctrlIcon.classList.add("fa-pause");
+            ctrlIcon.classList.remove("fa-play");
+        }
+    }
+    if(song.play()) {
+        setInterval(() => {
+            progress.value = song.currentTime;
+        }, 500);
+    }
+    progress.onchange = function() {
+        song.play();
+        song.currentTime = progress.value;
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7e46d90387.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+*{
+    font-family: "poppins", sans-serif;
+    font-optical-sizing: auto;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.music-player{
+    border: solid 1px rgb(119, 119, 119);
+    width: 400px;
+    height: 706.86px;
+    padding: 25px 35px;
+    border-radius: 50px;
+    background: radial-gradient(circle,  #f7f7f7,#d0d0d0, #b7b4b4 70%);
+    background-size: 200% 200%;
+    animation: dynamicLava 8s infinite alternate;
+}
+@keyframes dynamicLava {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+.music-player h1{
+    font-size: 60px;
+    font-weight: 700;
+    margin-top:20px;
+    margin-left:10px;
+    color:rgb(28, 28, 28) ;
+}
+.s1 p {
+    margin-left:10px;
+    text-decoration: none;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.s1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    padding: 0px;
+    padding-right:10px ;
+    border-radius: 50px;
+    height: 70px;
+    transition: .5s ease-in-out;
+}
+.s1:hover{
+    color: rgb(67, 67, 67);    
+    transform: scale(1.1);
+    transition: .3s ease;
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(39, 39, 39, 0.5);
+    background-image: linear-gradient(45deg,rgb(67, 67, 67),rgb(0, 0, 0) );
+    color: rgb(255, 255, 255);
+}
+.s1 i{
+    opacity: 30%;
+    transition: .5s;
+}
+.s1 i:hover{
+    opacity: 100%;
+    transition: .3s;
+    transform: scale(1.2);
+}
+a{
+    text-decoration: none;
+}
+.s1
+</style>
+<body>
+<div class="container">
+    <div class="music-player">
+        <h1>Songs</h1>
+        <a href="The color violet.html">
+        <div class="s1">
+            <p>The Color Violet(remix)</p>
+            <p><i class="fa-solid fa-play" id="ctrlIcon-1"></i></p>
+        </div></a>
+        <br>
+        <a href="broklyn bloody pop.html">
+        <div class="s1">
+            <p>#BrooklynBloodyPop</p>
+            <p><i class="fa-solid fa-play" id="ctrlIcon-1"></i></p>
+        </div></a>
+        <br>
+        <a href="bloodline.html">
+        <div class="s1">
+            <p>Bloodline</p>
+            <p><i class="fa-solid fa-play" id="ctrlIcon-1"></i></p>
+        </div></a>
+        <br>
+        <a href="Move Like Jagger.html">
+        <div class="s1">
+            <p>Move Like Jagger</p>
+            <p><i class="fa-solid fa-play" id="ctrlIcon-1"></i></p>
+        </div></a>
+        <br>
+        <a href="i can't even.html">
+        <div class="s1">
+            <p>#icanteven</p>
+            <p><i class="fa-solid fa-play" id="ctrlIcon-1"></i></p>
+        </div></a>
+        <br>
+    </div>
+</div>
+</body>
+</html>

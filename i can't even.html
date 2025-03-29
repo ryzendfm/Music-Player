@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7e46d90387.js" crossorigin="anonymous"></script>
+    <title>i can't even</title>
+</head>
+<style>
+*{
+    font-family: "Poppins", sans-serif;
+}
+.body-4{
+    background-color: #ce999d;
+}
+.container-4{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.music-player-4{
+    background-color:#d4d4d4;
+    width: 400px;
+    padding: 25px 35px;
+    text-align: center;
+    border-radius: 50px;
+    background: radial-gradient(circle,  #f7f7f7,#878787, #777575 70%);
+    background-size: 200% 200%;
+    animation: dynamicLava 8s infinite alternate;
+}
+
+@keyframes dynamicLava {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+nav .circle-4{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background:#dcdcdc;
+    color:#292929;
+    transition: .5s;
+    cursor: pointer;
+    box-shadow: 0px 5px 10px rgba(39, 39, 39, 0.5);
+}
+nav .circle-4:hover{
+    transform: scale(1.2);
+    transition: .5s;
+}
+.song-img-4{
+    width: 300px;
+    border-radius: 50px;
+    border: 2px solid #292929;
+    box-shadow: 0px 5px 40px rgba(39, 39, 39, 0.8);
+}
+.Song-name-4{
+    font-weight: 700;
+    color: #292929;
+}
+.music-player-4 p{
+    font-weight: 400;
+    color: #000000;
+}
+#progress-4{
+    -webkit-appearance: none;
+    width: 90%;
+    height: 6px;
+    background-color: #292929;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 40px 0;
+}
+#progress-4::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    background: #292929;
+    border-radius: 50%;
+    border: 6px solid #d7d7d7;
+    transition: .5s;
+    box-shadow: 0px 5px 10px rgba(39, 39, 39, 0.5);
+}
+#progress-4::-webkit-slider-thumb:hover{
+    transform: scale(1.2);
+    transition: .5s;
+}
+.controls-4{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+.controls-4 div{
+    width: 60px;
+    height:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: #dcdcdc;
+    color: #292929;
+    cursor: pointer;
+    transition: .5s;
+    box-shadow: 0px 5px 10px rgba(39, 39, 39, 0.5);
+}
+.controls-4 div:hover{
+    transition: .5s;
+    transform: scale(1.1);
+}
+.controls-4 div:nth-child(2){
+    background-color: #292929;
+    color: #dcdcdc;
+    transition: .5s;
+    transform: scale(1.4);
+}
+.controls-4 div:nth-child(2):hover{
+    transition: .5s;
+    transform: scale(1.6);
+}
+</style>
+<body>
+    <div class="container-4">
+        <div class="music-player-4">
+            <nav>
+                <a href="player.html">
+                <div class="circle-4">
+                    <i class="fa-solid fa-music"></i>
+                </div></a>
+                <div class="circle-4">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="img/icanteven _feat. French Montana_ - The Neighbourhood.jpg" class="song-img-4">
+            <h1 class="Song-name-4">#icanteven</h1>
+            <p>The Neighbourhood (feat. French Montana)</p>
+            <audio id="song-4">
+                <source src="audio/icanteven _feat. French Montana_ - The Neighbourhood.mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress-4">
+            <div class="controls-4">
+                <a href="Move Like Jagger.html" style="text-decoration: none;"><div><i class="fa-solid fa-backward"></i></div></a>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon-4"></i></div>
+                <a href="The color violet.html" style="text-decoration: none;"><div><i class="fa-solid fa-forward"></i></div></a>
+            </div>
+        </div>
+    </div>
+<script>
+    let progress = document.getElementById("progress-4");
+    let song = document.getElementById("song-4");
+    let ctrlIcon = document.getElementById("ctrlIcon-4");
+    song.onloadedmetadata = function() {
+        progress.max = song.duration;
+        progress.value = song.currentTime;
+    }
+    function playPause() {
+        if(ctrlIcon.classList.contains("fa-pause")) {
+            song.pause();
+            ctrlIcon.classList.remove("fa-pause");
+            ctrlIcon.classList.add("fa-play");
+        } else {
+            song.play();
+            ctrlIcon.classList.add("fa-pause");
+            ctrlIcon.classList.remove("fa-play");
+        }
+    }
+    if(song.play()) {
+        setInterval(() => {
+            progress.value = song.currentTime;
+        }, 500);
+    }
+    progress.onchange = function() {
+        song.play();
+        song.currentTime = progress.value;
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+    }
+</script>
+</body>
+</html>
